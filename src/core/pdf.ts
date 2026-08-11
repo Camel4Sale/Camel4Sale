@@ -29,7 +29,8 @@ const BRAND = rgb(0.06, 0.46, 0.43);
 
 /** Zeichen außerhalb von WinAnsi (CP1252) ersetzen, damit Helvetica nicht wirft. */
 function safe(s: string): string {
-  const extras = "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ ";
+  const extras =
+    "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ ";
   let out = "";
   for (const ch of s.replace(/\r\n?/g, "\n")) {
     if (ch === "\n" || ch === "\t") {
