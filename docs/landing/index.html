@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eRechnung Studio – XRechnung erstellen & prüfen ohne Abo, 100 % lokal</title>
+<meta name="description" content="E-Rechnungen (XRechnung, ZUGFeRD) erstellen, prüfen und verwalten – komplett im Browser, ohne Cloud, ohne Abo. Einmal 49 €.">
+<style>
+:root{--teal:#0f766e;--teal2:#14b8a6;--ink:#1e293b;--gray:#64748b;--bg:#f8fafc;--card:#fff;--line:#e2e8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:18px}.logo span{color:var(--teal)}
+.btn{display:inline-block;padding:11px 22px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px}
+.btn-p{background:var(--teal);color:#fff}.btn-p:hover{background:#115e59}
+.btn-s{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.hero{padding:72px 0 56px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;font-weight:800;letter-spacing:-.5px}
+.hero p.sub{margin:18px auto 0;max-width:620px;font-size:18px;color:var(--gray)}
+.hero .cta{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.badges{margin-top:22px;color:var(--gray);font-size:13px}
+.law{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px 20px;margin:0 auto;max-width:720px;font-size:14px;text-align:left}
+section{padding:48px 0}
+h2{font-size:26px;font-weight:800;text-align:center;margin-bottom:28px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:16px;margin-bottom:6px}.card p{font-size:14px;color:var(--gray)}
+.price{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:700px;margin:0 auto}
+.price .card.pro{border:2px solid var(--teal);position:relative}
+.price .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:12px;padding:2px 12px;border-radius:99px}
+.price .amount{font-size:34px;font-weight:800;margin:8px 0}
+.price ul{list-style:none;margin:14px 0;font-size:14px}.price li{padding:4px 0}.price li:before{content:"✓ ";color:var(--teal2);font-weight:700}
+.compare{font-size:13px;color:var(--gray);text-align:center;margin-top:14px}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer;font-size:15px}
+details p{margin-top:8px;font-size:14px;color:var(--gray)}
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--gray);text-align:center}
+footer a{color:var(--gray)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo">eRechnung <span>Studio</span></div>
+  <a class="btn btn-p" href="#preis">Pro kaufen – 49 €</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <h1>E-Rechnungen ohne Abo.<br>Ohne Cloud. Ohne Stress.</h1>
+  <p class="sub">XRechnungen erstellen, prüfen und verwalten – 100&nbsp;% lokal in deinem Browser.
+  Deine Rechnungsdaten verlassen niemals deinen Rechner.</p>
+  <div class="cta">
+    <a class="btn btn-p" href="/app/">Kostenlos ausprobieren</a>
+    <a class="btn btn-s" href="#pruefen">E-Rechnung prüfen (gratis)</a>
+  </div>
+  <p class="badges">Geprüft gegen die Geschäftsregeln der EN&nbsp;16931 · 96 automatisierte Tests · XRechnung&nbsp;3.0 · Made in Germany</p>
+</div></section>
+
+<div class="wrap"><div class="law">
+  <strong>⏰ Die E-Rechnungspflicht kommt in Stufen:</strong> Seit 1.1.2025 musst du E-Rechnungen
+  <em>empfangen</em> können. Ab 1.1.2027 müssen Unternehmen &gt; 800.000&nbsp;€ Umsatz sie <em>ausstellen</em> –
+  ab 1.1.2028 fast alle. Wer für Behörden arbeitet, braucht die XRechnung schon heute.
+</div></div>
+
+<section id="funktionen"><div class="wrap">
+  <h2>Alles drin, was du wirklich brauchst</h2>
+  <div class="grid">
+    <div class="card"><h3>📄 XRechnung erstellen</h3><p>Alle Pflichtangaben geführt: Leitweg-ID, Skonto, Reverse Charge, §&nbsp;19 UStG, Storno. Mit deutscher Live-Prüfung statt Fehlercode-Rätseln.</p></div>
+    <div class="card" id="pruefen"><h3>🔍 Empfangene Rechnungen prüfen – gratis</h3><p>XML oder ZUGFeRD-PDF einfach ins Fenster ziehen: lesbare Ansicht, rechnerische Prüfung, Prüfbericht zum Archivieren (BMF-Empfehlung).</p></div>
+    <div class="card"><h3>🔒 100 % lokal</h3><p>Keine Cloud, kein Konto, kein Tracking. Läuft als installierbare App auch offline. DSGVO? Entspannt.</p></div>
+    <div class="card"><h3>🗂️ Verwalten</h3><p>Kunden- und Artikelstamm, lückenlose Nummernkreise, schöne PDF-Sichtkopie, JSON-Backup mit einem Klick.</p></div>
+  </div>
+</div></section>
+
+<section id="preis"><div class="wrap">
+  <h2>Ein Preis. Einmal.</h2>
+  <div class="price">
+    <div class="card">
+      <h3>Free</h3>
+      <div class="amount">0 €</div>
+      <ul><li>Unbegrenzt Rechnungen prüfen</li><li>3 Rechnungen erstellen</li><li>Alle Stammdaten-Funktionen</li></ul>
+      <a class="btn btn-s" href="/app/">Loslegen</a>
+    </div>
+    <div class="card pro">
+      <span class="tag">Einführungspreis</span>
+      <h3>Pro</h3>
+      <div class="amount">49 € <small style="font-size:14px;color:var(--gray)">einmalig</small></div>
+      <ul><li>Unbegrenzt Rechnungen erstellen</li><li>Alle 1.x-Updates inklusive</li><li>E-Mail-Support</li><li>Kein Abo, keine Folgekosten</li></ul>
+      <a class="btn btn-p" href="__PURCHASE_URL__">Jetzt kaufen</a>
+    </div>
+  </div>
+  <p class="compare">Zum Vergleich: Gängige Abo-Tools kosten 12,90 €/Monat = 154,80 € pro Jahr. Jedes Jahr.</p>
+</div></section>
+
+<section><div class="wrap" style="max-width:720px">
+  <h2>Häufige Fragen</h2>
+  <details><summary>Ist ein PDF nicht auch eine E-Rechnung?</summary><p>Nein. Eine E-Rechnung im Sinne des Gesetzes ist ein strukturierter Datensatz nach EN&nbsp;16931 (z.&nbsp;B. XRechnung-XML oder ZUGFeRD). Ein normales PDF gilt ab 2028 im B2B nicht mehr.</p></details>
+  <details><summary>Wo liegen meine Daten?</summary><p>Ausschließlich in deinem Browser (IndexedDB) auf deinem Gerät. Es gibt keinen Server. Mit der eingebauten Backup-Funktion sicherst du alles als Datei.</p></details>
+  <details><summary>Gilt die Pflicht auch für Kleinunternehmer?</summary><p>Empfangen: ja, seit 2025. Ausstellen: nein – Kleinunternehmer nach §&nbsp;19 UStG sind dauerhaft von der Ausstellungspflicht ausgenommen, dürfen XRechnungen aber natürlich freiwillig stellen (manche Auftraggeber verlangen es).</p></details>
+  <details><summary>Ersetzt das Tool meinen Steuerberater?</summary><p>Nein. Es sorgt für formal korrekte, valide E-Rechnungen – steuerliche Fragen bleiben Beratungsthema. Für die verbindliche Konformitätsprüfung verlinken wir zusätzlich den offiziellen Validator.</p></details>
+  <details><summary>Was passiert, wenn XRechnung 4.0 kommt?</summary><p>Das Update ist für alle 1.x-Käufer kostenlos – wir stellen rechtzeitig um (angekündigt für Ende 2026).</p></details>
+</div></section>
+
+<footer><div class="wrap">
+  <p>© 2026 eRechnung Studio · <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  <p style="margin-top:6px">Hinweis: eRechnung Studio unterstützt bei der formal korrekten Rechnungsstellung und ersetzt keine Steuer- oder Rechtsberatung.</p>
+</div></footer>
+</body>
+</html>
