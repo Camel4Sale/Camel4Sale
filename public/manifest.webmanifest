@@ -1,0 +1,24 @@
+{
+  "name": "eRechnung Studio",
+  "short_name": "eRechnung",
+  "description": "XRechnungen erstellen, prüfen und verwalten – 100 % lokal im Browser.",
+  "lang": "de",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
