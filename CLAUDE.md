@@ -1,14 +1,53 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Hinweise für die Arbeit mit Claude Code in diesem Repository.
 
-## What This Repository Is
+## Was dieses Repository ist
 
-`Camel4Sale/Camel4Sale` is the special GitHub profile repository for the Camel4Sale account (the repository whose name matches the username, described on GitHub as "Config files for my GitHub profile"). A `README.md` placed at the repository root is rendered publicly on the profile page at https://github.com/Camel4Sale.
+**eRechnung Studio** – kommerzielle, rein clientseitige Web-App (React + TypeScript + Vite +
+Tailwind v4) zum Erstellen, Prüfen und Verwalten von E-Rechnungen (XRechnung/ZUGFeRD) für den
+deutschen Markt. Keine Server, alle Daten in IndexedDB.
 
-Apart from this file, the repository is currently empty: there is no application code, build system, test suite, linter, or CI configuration.
+## Befehle
 
-## Guidance for Working Here
+```bash
+npm install            # Abhängigkeiten (exakt gepinnt, keine Lockfile im Repo)
+npm run dev            # Vite-Devserver
+npm run typecheck      # tsc --noEmit (strict)
+npm test               # Vitest (tests/**, Node-Umgebung, fake-indexeddb)
+npm run build          # Typecheck + Produktions-Build
+npm run e2e            # Playwright (startet vite preview auf :4173)
+npm run keygen -- …    # Lizenzschlüssel-CLI (init/sign/verify)
+npm run screenshots    # App-Screenshots nach docs/screenshots/ (gitignored)
+```
 
-- **Do not assume tooling exists.** There are no package manifests and no build/test/lint commands to run. If code is added later, verify what actually exists before running commands, and update this file with the real commands and architecture notes.
-- **Profile README placement.** For profile content to appear on the GitHub profile page, it must be a `README.md` at the repository root. GitHub-flavored Markdown is supported, including images, badges, and stats widgets.
+In Umgebungen mit vorinstalliertem Chromium: `CHROMIUM_PATH=/pfad/zu/chrome npm run e2e`.
+
+## Architektur
+
+- `src/core/` ist **UI-frei** und vollständig unit-getestet. Kernprinzipien:
+  - Geldbeträge NIE als float: skalierte BigInt (`money.ts`), kaufmännische Rundung.
+  - `ubl.ts` erzeugt XRechnung-UBL mit strikter Schema-Elementreihenfolge (Sequenz!).
+  - `rules.ts` = deutsche Fehlermeldungen zu EN-16931-/BR-DE-Regeln; zwei Eintrittspunkte:
+    `validateInvoice` (eigene Rechnungen) und `validateParsed` (empfangene Dateien).
+  - `parse.ts` parst tolerant UBL **und** CII (ZUGFeRD); `pdfExtract.ts` holt eingebettete
+    XMLs aus PDFs (EmbeddedFiles-Namensbaum + AF-Array).
+- `src/ui/` hält keinerlei Fachlogik; Hash-Router ohne Dependency (`ui/router.ts`).
+- Lizenzsystem: ECDSA P-256, Format `ERS1.<payload>.<sig>`; öffentlicher Schlüssel wird aus
+  `src/license-public.jwk.json` eingebaut, `src/license-key-meta.json.dev` steuert die
+  Dev-Key-Warnung. **Keine privaten Schlüssel committen** (Ausnahme: keine – dev-keys
+  enthält nur Öffentliches + Demo-Lizenz).
+
+## Konventionen
+
+- UI-Texte, Kommentare und Doku auf Deutsch (Zielmarkt); Code-Bezeichner Englisch.
+- Neue Prüfregeln: immer mit Regel-ID, deutscher Meldung und Test in `tests/rules.test.ts`.
+- Änderungen am UBL-Output brauchen einen Roundtrip-Test (bauen → parsen → `validateParsed`
+  ohne Fehler) – siehe `tests/ubl.test.ts`.
+- Vor Release: `docs/LAUNCH_CHECKLIST.md` befolgen (Schlüsselrotation!).
+
+## Was bewusst NICHT im Repo ist
+
+- `package-lock.json` (Versionen exakt in package.json gepinnt)
+- Binärdateien/Screenshots (per `npm run screenshots` lokal erzeugbar)
+- private Lizenzschlüssel (`tools/keygen/out/`, gitignored)
