@@ -24,7 +24,7 @@ export const PCT_FRACTION_DIGITS = 2;
  */
 export function parseDecimal(input: string, maxFractionDigits: number): bigint | null {
   if (typeof input !== "string") return null;
-  let s = input.trim().replace(/[\s €]/g, "");
+  let s = input.trim().replace(/[\s €]/g, "");
   if (s === "") return null;
   if (s.includes(",")) {
     // Deutsche Schreibweise: Punkte sind Tausendertrenner
@@ -110,7 +110,7 @@ export function formatCents(cents: Cents): string {
 
 /** "1.234,56 €" */
 export function formatEUR(cents: Cents): string {
-  return `${formatCents(cents)} €`;
+  return `${formatCents(cents)} €`;
 }
 
 /** "1234.56" – XML-Schreibweise (Punkt, immer 2 Nachkommastellen). */
