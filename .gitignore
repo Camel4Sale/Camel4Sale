@@ -5,6 +5,7 @@ coverage/
 playwright-report/
 test-results/
 tools/keygen/out/
+docs/screenshots/
 tools/keygen/dev-keys/private.jwk.json
 .env
 .env.*
